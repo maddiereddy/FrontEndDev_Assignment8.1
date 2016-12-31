@@ -1,0 +1,48 @@
+<div class="col-md-8 col-md-offset-2">
+    <h1 style="text-align: center; margin-top: 20px">User Registration Form</h1>
+</div>
+<div class="col-md-8 col-md-offset-2">
+    <form [formGroup]="signUpForm" novalidate (ngSubmit)="onSubmit()" style="padding: 20px; margin: 10px">
+        <div class="form-group">
+            <input type="text"
+               id="fullName"
+               class="form-control"
+               placeholder="Enter Name"
+               formControlName="fullName">
+
+            <input type="text"
+               id="userName"
+               class="form-control"
+               placeholder="Enter User Name"
+               formControlName="userName">
+
+            <input type="email"
+               id="email"
+               class="form-control"
+               placeholder="Enter Email Address"
+               formControlName="email">
+
+            <input type="tel"
+               id="mobile"
+               class="form-control"
+               placeholder="Enter Mobile Number in xxx-xxx-xxxx format"
+               formControlName="mobile"
+               maxlength="12" pattern="\d{3}[\-]\d{3}[\-]\d{4}">
+
+            <input type="password"
+               id="password"
+               class="form-control"
+               placeholder="Enter Password, 6 chars min with at least 1 number"
+               formControlName="password">
+
+            <input type="password"
+               id="confirmPassword"
+               class="form-control"
+               placeholder="Re-enter Password"
+               formControlName="confirmPassword">
+
+            <button class="btn btn-primary pull-right" type="submit" [disabled]="!signUpForm.valid">Submit</button>
+         </div>
+    </form>
+    <pre> {{ signUpForm.value | json }} </pre>
+</div>
